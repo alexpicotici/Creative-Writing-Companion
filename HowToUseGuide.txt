@@ -11,4 +11,6 @@ On Mac, use: python3 -m spacy download en_core_web_trf
 4. Download the NLTK VADER lexicon.
 On Windows, use: python -m nltk.downloader vader_lexicon
 On Mac, use: python3 -m nltk.downloader vader_lexicon
-5. In your terminal, navigate to the directory where the main 'app.py' file is, and run the command: 'python app.py'  on Windows, or 'python3 app.py' on MAC. The terminal will generate a local server address. Copy the URL into your web browser to access the application. Alternatively, you can open the 'app.py' file in an IDE and run the code there to generate the local server address.
+5. In your terminal, navigate to the directory where the main 'app.py' file is, and run the command: 'python app.py'  on Windows, or 'python3 app.py' on MAC. 
+The terminal will generate a local server address. Copy the URL into your web browser to access the application. Alternatively, you can open the 'app.py' file in 
+an IDE and run the code there to generate the local server address.
