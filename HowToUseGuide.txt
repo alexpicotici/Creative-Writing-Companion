@@ -1,0 +1,17 @@
+The supporting material files can also be found at: https://qmulprod-my.sharepoint.com/:f:/g/personal/ec251002_qmul_ac_uk/IgDJM4T0sYsYSouOX-MbhvG4Advry9BvJ9dXDZypDiOTydQ
+Please, use your QMUL OneDrive account to access it to avoid any access issues.
+
+This is a full-stack Flask web application engineered for the purpose of showcasing the use of NLP models for creative writing.
+
+Instructions:
+1. Please ensure you have Python 3 installed.
+2. Install Flask, Spacy, and NLTK
+On Windows, go to your terminal and enter: pip install Flask spacy nltk.
+On Mac, use: pip3 install Flask spacy nltk.
+3. Download the required Spacy model, en_core_web_trf.
+On Windows, use: python -m spacy download en_core_web_trf
+On Mac, use: python3 -m spacy download en_core_web_trf
+4. Download the NLTK VADER lexicon.
+On Windows, use: python -m nltk.downloader vader_lexicon
+On Mac, use: python3 -m nltk.downloader vader_lexicon
+5. In your terminal, navigate to the directory where the main 'app.py' file is, and run the command: 'python app.py'  on Windows, or 'python3 app.py' on MAC. The terminal will generate a local server address. Copy the URL into your web browser to access the application. Alternatively, you can open the 'app.py' file in an IDE and run the code there to generate the local server address.
