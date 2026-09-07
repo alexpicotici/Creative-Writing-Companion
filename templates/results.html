@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    
+    <!-- Stylesheet path linking to CSS file, using Jinja2 code -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    
+    <!-- Integrating Font Awesome icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Story Overview</title>
+</head>
+<body>
+    
+    <!-- A return button -->
+    <div style="margin-bottom: 20px;">
+        <form action="/" method="GET">
+            <button type="submit">
+                <i class="fa-solid fa-arrow-left"></i>Analyse Another Text
+            </button>
+        </form>
+    </div>
+ 
+    <!-- This is where the results will appear -->
+    <h1>Story overview</h1>
+    
+    <!-- A short summary of results for the text submission -->
+    <h2>Summary</h2>
+    <p><strong>{{ entities | length }} entities found.</strong></p>
+    <p><strong>The overall sentiment of your text is:</strong>
+        {% if overall_sentiment['compound'] >= 0.5 %}
+            <span style="color: #2C4C3B; font-weight: bold;">Positive</span>
+        {% elif overall_sentiment['compound'] <= -0.5 %}   
+            <span style="color: #8B0000; font-weight: bold;">Negative</span>
+        {% else %}
+            <span style="color: #333333; font-weight: bold;">Neutral</span>
+        {% endif %}
+        <br>
+        (Compound Score: {{ overall_sentiment['compound'] }})
+    </p>
+
+    <h2>Entities in your story</h2>
+    <!-- Displaying all entities detected, with label and number of mentions -->
+    <table>
+        <tr>
+            <th>Entity</th>
+            <th>Label</th>
+            <th>Mentions</th>
+        </tr>
+        <!-- Looping through the entities dictionary -->
+        {% for entity, data in entities.items() %}
+        <tr>
+            <td>{{ entity }}</td>
+            <td>{{ data['label'] }}</td>
+            <td>{{ data['count'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <!-- Displaying the sentiment analysis results for all the sentences in the text submitted -->
+    <h2>Sentences Sentiment Breakdown</h2>
+    <!-- Looping through the sentiment analysis dictionary -->
+    {% for sentence, scores in sentences.items() %}
+        <p><strong>Sentence:</strong> {{ sentence }}</p>
+        <p>
+            Positive: {{ scores['pos'] }} |
+            Negative: {{ scores['neg'] }} |
+            Compound: {{ scores['compound'] }}
+            <br>
+            Overall sentiment:
+            {% if scores['compound'] >= 0.5 %}
+                <span style="color: #2C4C3B; font-weight: bold;">Positive</span>
+            {% elif scores['compound'] <= -0.5 %}   
+                <span style="color: #8B0000; font-weight: bold;">Negative</span>
+            {% else %}
+                <span style="color: #333333; font-weight: bold;">Neutral</span>
+            {% endif %}
+        </p>
+        <br>
+        {% endfor %}
+
+</body>
+</html>
