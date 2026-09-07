@@ -1,6 +1,3 @@
-The supporting material files can also be found at: https://qmulprod-my.sharepoint.com/:f:/g/personal/ec251002_qmul_ac_uk/IgDJM4T0sYsYSouOX-MbhvG4Advry9BvJ9dXDZypDiOTydQ
-Please, use your QMUL OneDrive account to access it to avoid any access issues.
-
 This is a full-stack Flask web application engineered for the purpose of showcasing the use of NLP models for creative writing.
 
 Instructions:
